@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Home from './home.jsx';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 
 class App extends Component{
@@ -38,10 +39,12 @@ onSort(event, sortKey){
 
   render(){  
     return (
-    <div>
-        {/* <Home data={this.state.response}/> */}
-        <Home />
-    </div>
+    <BrowserRouter>
+      <Switch>
+         <Route path = '/' component={Home} />
+      </Switch>
+    </BrowserRouter>
+        
     )
   }
 }
