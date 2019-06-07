@@ -110,7 +110,7 @@ class Home extends Component {
         },
         "crew": {
           "movie_casts": movie_casts,
-          "movie_director": movie_description
+          "movie_director": movie_director
         }
       })
       .then(response => {
@@ -121,14 +121,18 @@ class Home extends Component {
         console.log(error);
       });
   }
-  editInventory = (name, category, model, manufacturer, id) => {
+  editInventory = (movie_title, movie_year, movie_description, movie_casts, movie_director, id) => {
+    console.log(this.state.id)
     Axios
-      .put(API_URL+ id, {
-        "details": {
-          "category": category,
-          "manufacturer": manufacturer,
-          "model": model,
-          "name": name
+      .put(API_URL+ this.state.id, {
+        "info": {
+          "movie_title": movie_title,
+          "movie_year": movie_year,
+          "movie_description": movie_description
+        },
+        "crew": {
+          "movie_casts": movie_casts,
+          "movie_director": movie_director
         }
       }).then(response => {
         this.setState({ showUpdate: false });

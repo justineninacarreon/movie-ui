@@ -1,6 +1,14 @@
 import React from 'react';
-import {Button} from 'react-bootstrap'
-import {Redirect} from 'react-router-dom'
+import {Button} from 'react-bootstrap';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Fab from '@material-ui/core/Fab';
+import DescriptionIcon from '@material-ui/icons/Description';
+import AddIcon from '@material-ui/icons/Add';
+import '../src/actions.css'
+
+
+
+  
 
 export class DeleteButton extends React.Component{
     constructor(props){
@@ -9,8 +17,10 @@ export class DeleteButton extends React.Component{
 
     render(){
         return(
-            <div>
-                <Button variant="secondary" value={this.props.id} onClick= {this.props.delete}>DELETE</Button>
+            <div class = "deleteButton">
+                <Fab color="primary" value={this.props.id} onClick= {this.props.delete}>
+                    <DeleteIcon />
+                </Fab>
             </div>
         )
     }
@@ -25,25 +35,27 @@ export class AddButton extends React.Component {
     render() {
         return(
                 
-                <Button variant="primary" onClick={this.props.addModal} >
-                    ADD
-                </Button>
-            
-        )
+        <div class = "addButton">
+            <Fab onClick={this.props.addModal} color="tertiary" aria-label="Edit" >
+                <AddIcon />
+            </Fab>
+        </div>
+              )
     }
 }
 export class UpdateButton extends React.Component {
+    
 
     constructor(props) {
         super(props);
     }
-
+   
     render() {
         return(
-            <div>
-                <Button variant="primary" onClick={this.props.openModal}>
-                    Update
-                </Button>
+            <div class = "editButton">
+                <Fab onClick={this.props.openModal} color="secondary" aria-label="Edit" >
+                    <DescriptionIcon />
+                </Fab>
             </div>
         )
     }
